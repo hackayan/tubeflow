@@ -12,7 +12,8 @@
 **Research-First YouTube Content Creation Pipeline for Claude Code**
 
 > **This fork** runs [@ayandas9197](https://www.youtube.com/@ayandas9197) and adds YouTube API automation
-> (`/learn`, `/trend`, `/weekly`, `automation/ytapi.py`). Start with [docs/AUTOMATION.md](docs/AUTOMATION.md).
+> (`/learn`, `/trend`, `/weekly`, `automation/ytapi.py`), plus a separate travel vlog channel
+> made from Google Drive footage (`/travel`). Start with [docs/AUTOMATION.md](docs/AUTOMATION.md).
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-green.svg)](https://claude.ai/claude-code)

@@ -1,0 +1,45 @@
+# The travel vlog channel: a separate YouTube channel from @ayandas9197.
+# Used with --profile travel, e.g.  python automation/ytapi.py --profile travel auth
+# It signs in separately and keeps its own token and data folder (data/travel/).
+
+version: "1.0"
+
+channel:
+  name: ""                      # TODO the travel channel's name, once you have created it
+  handle: ""                    # TODO its @handle
+  url: ""                       # TODO
+  tagline: ""                   # TODO
+  niche: "travel-vlog"
+
+languages:
+  primary: "en"                 # TODO change if the vlogs are mainly in Hindi or Bengali
+  also: ["hi", "bn"]
+
+voice:
+  style_file: "profile/travel/writing-style.md"
+  channel_overview_file: "profile/travel/channel-overview.md"
+  narration: "ai-tts"           # ElevenLabs voice-over where the footage has no talking
+
+structure:
+  footage_root: "footage"       # where drive_fetch.py puts downloaded footage (gitignored)
+  youtube_root: "03-YouTube/travel"
+
+links:
+  main_channel: "https://www.youtube.com/@ayandas9197"
+  linkedin: "https://www.linkedin.com/in/ayan-d99"
+  facebook: "https://www.facebook.com/share/1dW2RKAF5u/"
+
+youtube_api:
+  client_secret_file: "~/.config/tubeflow/client_secret.json"   # the same OAuth client as the main channel
+  token_file: "~/.config/tubeflow/token-travel.json"
+  data_dir: "data/travel"
+  default_privacy: "private"
+  # Seed searches for /trend --profile travel. TODO: add the places you have footage of.
+  trend_queries:
+    - "india travel vlog"
+    - "budget travel india"
+    - "west bengal travel vlog"
+    - "student travel on a budget"
+    - "solo travel india"
+
+# Uploads: set "category_id": 19 (Travel & Events) in each video's meta.json.

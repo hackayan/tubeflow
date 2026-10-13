@@ -181,9 +181,53 @@ writes ready-to-paste posts for each platform into `04-Social/`. To publish them
 Your LinkedIn and Facebook links are in `config.yaml`. Add your X profile to `links.twitter` if you
 want X links too.
 
+## 9. Travel vlog channel (separate channel)
+
+Travel vlogs go on their own channel, so each audience gets what it subscribed for. Everything here
+works for both channels; `--profile travel` picks the travel one, with its own sign-in, data folder
+(`data/travel/`) and settings (`profile/travel/config.yaml`).
+
+### Create the channel (you do this once, on YouTube)
+
+YouTube does not allow channels to be created through its API, so this step is yours:
+
+1. Sign in to YouTube with your Google account, open **Settings → Add or manage your channel(s) →
+   Create a channel**. This makes a second channel (a Brand Account) under the same Google account.
+2. Name it, add a picture and banner, and note its `@handle`.
+3. Put the name, handle and link into `profile/travel/config.yaml` (the lines marked TODO).
+
+### Connect it
+
+```bash
+python automation/ytapi.py --profile travel auth      # pick the TRAVEL channel when Google asks
+```
+
+### Footage from Google Drive
+
+1. In the same Google Cloud project, also enable the **Google Drive API**.
+2. Sign in with the Google account that has the footage (read-only access):
+   ```bash
+   python automation/drive_fetch.py --account personal auth
+   python automation/drive_fetch.py --account personal list "<Drive folder link>" --videos-only
+   python automation/drive_fetch.py --account personal fetch "<Drive folder link>" --videos-only
+   ```
+   Footage lands in `footage/<folder name>/` (gitignored). Re-running skips what is already there.
+
+### Make the vlog
+
+In Claude Code: `/travel "<Drive folder link>"`. It downloads, logs the clips (`footage.py log`
+with still frames Claude can look at), asks you what happened on the trip, drafts the story and a
+shot list, assembles a rough cut and up to three vertical Shorts (`footage.py cut`), writes the
+narration for ElevenLabs, packages title, thumbnail text and description, and uploads privately
+to the travel channel. The rough cut is a first assembly; finish it in your editor.
+
+Needs ffmpeg: `brew install ffmpeg` (Mac), `sudo apt install ffmpeg` (Linux/WSL), or
+https://ffmpeg.org/download.html (Windows).
+
 ## Privacy
 
 - `data/` holds analytics and comments, including viewers' names. It is gitignored.
+- `footage/` holds downloaded travel footage. It is gitignored.
 - `03-YouTube/`, `04-Social/` and `05-Templates/` are gitignored because this fork is public. Make the
   fork private if you want to commit your drafts.
 - Never put email addresses or tokens in a file that gets committed.

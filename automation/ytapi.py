@@ -19,6 +19,10 @@ Usage:
   python automation/ytapi.py playlists [--yes]            # series playlists from profile/series-plan.yaml
   python automation/ytapi.py reply COMMENT_ID --text "..." [--yes]
 
+Second channel (for example the travel vlog): put --profile travel before the command, e.g.
+  python automation/ytapi.py --profile travel auth
+It reads profile/travel/config.yaml and keeps its own sign-in and data folder.
+
 Prerequisites:
   pip install -r automation/requirements.txt
   An OAuth client file from Google Cloud Console (see docs/AUTOMATION.md).
@@ -64,9 +68,19 @@ QUESTION_WORDS = re.compile(
 
 # === CONFIGURATION ===
 
-def load_config() -> dict:
-    """Read youtube_api settings from config.yaml (repo root), falling back to profile/config.yaml."""
-    for path in (REPO_ROOT / "config.yaml", REPO_ROOT / "profile" / "config.yaml"):
+def config_paths(profile: Optional[str]) -> List[Path]:
+    """Where a channel's config lives. No profile: the main channel. A profile (for example "travel"):
+    config-<profile>.yaml at the repo root, falling back to profile/<profile>/config.yaml."""
+    if profile:
+        return [REPO_ROOT / f"config-{profile}.yaml", REPO_ROOT / "profile" / profile / "config.yaml"]
+    return [REPO_ROOT / "config.yaml", REPO_ROOT / "profile" / "config.yaml"]
+
+
+def load_config(profile: Optional[str] = None) -> dict:
+    """Read youtube_api settings for one channel. Each profile signs in separately, keeps its own
+    token and its own data folder, so two channels never mix."""
+    settings = dict(DEFAULTS, languages={"primary": "en", "also": []})
+    for path in config_paths(profile):
         if path.exists():
             try:
                 import yaml
@@ -74,11 +88,19 @@ def load_config() -> dict:
                 sys.exit("PyYAML is required: pip install -r automation/requirements.txt")
             with open(path, encoding="utf-8") as fh:
                 config = yaml.safe_load(fh) or {}
-            settings = dict(DEFAULTS)
             settings.update(config.get("youtube_api") or {})
-            settings["languages"] = config.get("languages") or {"primary": "en", "also": []}
-            return settings
-    return dict(DEFAULTS, languages={"primary": "en", "also": []})
+            settings["languages"] = config.get("languages") or settings["languages"]
+            break
+    else:
+        if profile:
+            sys.exit(f"No config for profile '{profile}': expected {config_paths(profile)[1]}")
+    if profile:
+        # Never share a token or a data folder with the main channel.
+        if settings["token_file"] == DEFAULTS["token_file"]:
+            settings["token_file"] = f"~/.config/tubeflow/token-{profile}.json"
+        if settings["data_dir"] == DEFAULTS["data_dir"]:
+            settings["data_dir"] = f"data/{profile}"
+    return settings
 
 
 def data_dir(settings: dict) -> Path:
@@ -543,6 +565,7 @@ def cmd_reply(clients: Clients, args) -> Optional[dict]:
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p.add_argument("--profile", help="another channel, for example 'travel' (default: the main channel)")
     sub = p.add_subparsers(dest="command", required=True)
     sub.add_parser("auth", help="sign in once in your browser")
     s = sub.add_parser("videos", help="your uploads with stats")
@@ -591,7 +614,7 @@ COMMANDS = {
 
 def main(argv=None) -> int:
     args = build_parser().parse_args(argv)
-    clients = Clients(load_config())
+    clients = Clients(load_config(args.profile))
     try:
         COMMANDS[args.command](clients, args)
     except Exception as exc:  # turn API errors into one readable line

@@ -23,6 +23,12 @@ Commands and agents here came from a self-hosting channel. Where they mention Do
 open-source sponsorship or FUNDING.yml, skip that part. For this channel the equivalent is citing
 papers properly: author, year and a link (DOI or arXiv) for every research claim.
 
+## Two channels
+
+This repo also runs a separate travel vlog channel: `profile/travel/`, `/travel`, and
+`--profile travel` on `ytapi.py`. Never upload, plan or post travel content to the education
+channel or the other way round; every `ytapi.py` call for travel carries `--profile travel`.
+
 ## Playlists and series
 
 `profile/series-plan.yaml` is the plan: six playlists, each a series taught in order. A new video
