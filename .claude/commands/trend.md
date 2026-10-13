@@ -21,9 +21,10 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, Task
 
 3. **Match against the audience.** Read `03-YouTube/audience-learnings.md`. A trend that matches
    something our own viewers asked for or searched beats a bigger trend they never mentioned. Score
-   each candidate on: outlier multiple, audience evidence, fit with the four pillars in
+   each candidate on: outlier multiple, audience evidence, fit with the pillars in
    `03-YouTube/channel-overview.md`, and whether it can be made honestly (citable sources, real PhD
-   experience).
+   experience, and for trading: teachable without a profit claim). Skip trends that only work as
+hype (guaranteed-profit strategies, "secret" hacks): the channel teaches things correctly.
 
 4. **Write** `03-YouTube/research/YYYY-MM-DD-trends.md`: the top five outliers with multiple and
    formula, the one structural thing they share, and the three ideas worth making, each with its

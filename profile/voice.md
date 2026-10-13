@@ -6,8 +6,9 @@ your own recordings once you have them.
 
 ## Who I am talking to
 
-One person: a second-year computer science or biology undergraduate in India or Bangladesh who
-finds research interesting but thinks it is only for toppers, and has never read a full paper.
+One person: a second-year engineering or science undergraduate in India or Bangladesh who is curious
+about data, coding, science and research, learned most of it from rushed videos that skipped the
+"why", and thinks advanced topics are only for toppers.
 
 ## How I actually talk
 
@@ -27,11 +28,13 @@ TODO: your own phrases, in English, Hindi and Bengali.
 - Results of studies I cannot cite on screen.
 - Unpublished results from my lab unless they are cleared to share.
 - Health, cure or "boost your brain" claims.
+- Trading profits, returns or "this strategy works" - education only, never financial advice.
+- Code results I have not actually run.
 - Numbers about my own channel or career that I have not given you.
 
 ## My format
 
-- Long videos: 8-20 minutes, no channel intro, hook in the first 15 seconds.
+- Long videos: 8-25 minutes, one concept, method or worked project, no channel intro, hook in the first 15 seconds.
 - Shorts: under 60 seconds, cut from long videos.
 - Narration: AI text-to-speech (write for it: short sentences, spelled-out abbreviations).
 - On screen: slides, diagrams, paper figures, code. TODO: say if you appear on camera.

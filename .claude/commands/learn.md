@@ -26,13 +26,17 @@ Turn what the audience did and said into knowledge the next video is built from.
    said there (download the auto-captions if they exist and pass `--transcript`).
 
 3. **Comments.** Follow `.claude/skills/yt-comment/SKILL.md` on `comments/channel.json`: triage into
-   questions, corrections, praise and bait. Group repeated questions into topics. Note the language
+   questions, corrections, praise and bait. Read the questions as a teacher: which ones show a
+   student misunderstood something the video taught? That is the most valuable signal on the channel.
+   If a viewer's correction is right, the description and pinned comment get fixed first. Group repeated questions into topics. Note the language
    mix in `summary.languages`: it is the evidence for which videos get Hindi or Bengali versions.
 
 4. **Demand.** From `analytics-Nd.json` read `search_terms` (what people typed before finding the
    channel), `traffic_sources`, `countries` and `age_gender`. Compare long videos against Shorts.
 
 5. **Update the knowledge file** `03-YouTube/audience-learnings.md`. Edit it in place, never start over:
+   - **What they got wrong:** misconceptions visible in questions and comments ("so X means Y, right?"),
+     and corrections viewers sent us. Each is a candidate for a follow-up video or a pinned clarification.
    - **What they ask for:** repeated questions and search terms, each with a count, newest first.
    - **What keeps them:** the openings and segments that held retention.
    - **What loses them:** the leaks, with the line that was being said.

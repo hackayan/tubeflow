@@ -9,8 +9,8 @@ channel:
   name: "Ayan Das"
   handle: "@ayandas9197"
   url: "https://www.youtube.com/@ayandas9197"
-  tagline: "Computer science, neuroscience and the real life of a PhD"
-  niche: "research-education"
+  tagline: "Learn science, engineering and data the right way"
+  niche: "stem-education"
 
 # Languages the channel publishes in. The first one is the default for scripts,
 # titles and descriptions; the others are written as YouTube localizations.
@@ -64,7 +64,7 @@ about:
   company_name: "Ayan Das"
   established: ""
   location: ""                                    # TODO optional
-  tagline: "PhD researcher explaining computer science and neuroscience to students"
+  tagline: "PhD researcher teaching science, engineering, data analysis and research skills to students"
   application_url: ""
 
 # Settings for automation/ytapi.py (YouTube Data + Analytics API).
@@ -78,12 +78,15 @@ youtube_api:
   # Seed searches for /trend. Edit freely.
   trend_queries:
     - "how to start research as a student"
-    - "phd life computer science"
+    - "computer science explained"
     - "neuroscience explained"
-    - "computational neuroscience"
+    - "engineering explained for students"
+    - "data analysis python tutorial"
+    - "statistics for data science"
+    - "algorithmic trading python backtest"
     - "machine learning for beginners"
     - "how to read a research paper"
-    - "research motivation for students"
+    - "how to learn anything fast students"
 
 advanced:
   research_model: "haiku"

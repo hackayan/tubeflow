@@ -16,7 +16,8 @@ The whole loop, once a week. Each step writes files; nothing is uploaded or post
 4. **Research the anchor**: `/youtube-research "<anchor topic>"`.
 5. **Draft the anchor**: `/youtube full "<anchor topic>"`. Script with `.claude/skills/yt-script`
    (hooks scored in English, then translated), title and thumbnail with `yt-package`, description
-   with `yt-seo`. Narration is AI text-to-speech, so follow the TTS rules in `writing-style.md`.
+   with `yt-seo`, and the `learning-kit.md` described in CLAUDE.md. Narration is AI text-to-speech,
+   so follow the TTS rules in `writing-style.md`. For code or trading videos, run the code first.
 6. **Hand back**: the plan table, the draft folder, and the questions to answer before recording.
 
 After the user records and uploads (or asks for an upload with `automation/ytapi.py upload`, which

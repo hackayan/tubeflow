@@ -8,6 +8,42 @@ A senior student who has been through it, talking to a junior one. Warm, direct 
 difficulty. Explains like a good teaching assistant: start from what the viewer already knows, then
 add one new idea at a time.
 
+## Teaching it correctly
+
+The goal is that students learn the thing *correctly* and can then learn the next thing alone.
+
+- **Start with the learning goal.** One sentence: "by the end you will be able to ...".
+- **Name the prerequisites** in the description and in one spoken line, with a link to learn them.
+- **Intuition, then the precise version.** Give the picture first, then the exact definition,
+  formula or algorithm. When a simplification is used, say so out loud ("this is simplified; the
+  full version is ...").
+- **Name the common misconception** and show why it is wrong. Students remember the correction.
+- **Worked example before theory gets long.** Real numbers, real data, real code.
+- **Let them try.** At least one pause-and-think question per long video, and an exercise at the end
+  with its answer in the pinned comment or the linked repo.
+- **Point to the next step:** the one resource (paper, book chapter, documentation) to read next.
+- **Check before recording:** every fact against a primary source (paper, textbook, official docs),
+  every formula re-derived or checked, every number traceable.
+
+## Code and data
+
+- Every piece of code shown on screen has been run, with the output shown being the real output.
+  Put the code in the GitHub repo linked in the description, with the library versions.
+- Datasets are named and linked, with their licence. No made-up data presented as real.
+- Say where results would change: random seeds, data leakage, overfitting, survivorship bias.
+
+## Algorithmic trading and finance
+
+These videos teach the data science and engineering, never what to buy.
+
+- Say "education only, not financial advice" in the opening and in the description.
+- No profit promises, no "X% a month", no buy or sell calls, no paid tips or signal groups.
+- Every backtest states its period, costs (fees, slippage), and that past results do not predict
+  future ones. Show what goes wrong: overfitting, look-ahead bias, survivorship bias.
+- Show losses and drawdowns as clearly as gains.
+- Be careful with local rules: SEBI (India) restricts unregistered investment advice and
+  recommendations. Teaching methods is fine; recommending securities is not.
+
 ## Written for AI narration (for now)
 
 Narration is text-to-speech until I record my own voice, so scripts must read cleanly aloud:
