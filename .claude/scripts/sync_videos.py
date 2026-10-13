@@ -277,14 +277,18 @@ def insert_into_all_videos_table(content: str, video: Dict, category: str) -> st
     lines = content.split('\n')
     result = []
     inserted = False
+    in_all_videos = False
 
     for i, line in enumerate(lines):
         result.append(line)
+        if line.startswith("## "):
+            in_all_videos = line.strip() == "## All Videos"
 
         # Insert after the table header separator
         if line.startswith("|-------") and not inserted:
-            # Check if next lines are table content (All Videos table)
-            if i + 1 < len(lines) and lines[i + 1].startswith("| ["):
+            # The All Videos table: under its own heading (even when still empty), or the first
+            # table whose rows are video links
+            if in_all_videos or (i + 1 < len(lines) and lines[i + 1].startswith("| [")):
                 result.append(new_row)
                 inserted = True
 

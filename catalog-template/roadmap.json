@@ -1,0 +1,483 @@
+{
+  "lastUpdated": "2026-10-13",
+  "categories": [
+    {
+      "id": "neuro",
+      "name": "Neuroscience from Zero",
+      "label": "neuroscience",
+      "color": "8957e5"
+    },
+    {
+      "id": "engineering",
+      "name": "Signals and Systems, Explained",
+      "label": "engineering",
+      "color": "0969da"
+    },
+    {
+      "id": "data",
+      "name": "Data Analysis from Zero (Python)",
+      "label": "data-analysis",
+      "color": "1f883d"
+    },
+    {
+      "id": "trading",
+      "name": "Algo Trading with Python - Education Only",
+      "label": "algo-trading",
+      "color": "bf8700"
+    },
+    {
+      "id": "research",
+      "name": "The Computational Brain: Psychosis Research Explained",
+      "label": "comp-psychiatry",
+      "color": "cf222e"
+    },
+    {
+      "id": "skills",
+      "name": "Learn It Right: Research Skills for Students",
+      "label": "research-skills",
+      "color": "6e7781"
+    }
+  ],
+  "complexityLabels": [
+    {
+      "id": "beginner",
+      "name": "Beginner",
+      "color": "2ea44f"
+    },
+    {
+      "id": "intermediate",
+      "name": "Intermediate",
+      "color": "fbca04"
+    },
+    {
+      "id": "advanced",
+      "name": "Advanced",
+      "color": "d73a4a"
+    }
+  ],
+  "videos": [
+    {
+      "id": "neuro-01",
+      "title": "What a neuron actually does",
+      "category": "neuro",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Neuroscience from Zero, part 1 of 8",
+      "notes": "You will learn to: Explain how a neuron receives, adds up and sends signals."
+    },
+    {
+      "id": "neuro-02",
+      "title": "The action potential, step by step",
+      "category": "neuro",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Neuroscience from Zero, part 2 of 8",
+      "notes": "You will learn to: Draw the action potential and say which ion does what at each phase. Watch first: What a neuron actually does."
+    },
+    {
+      "id": "neuro-03",
+      "title": "Synapses: how neurons talk",
+      "category": "neuro",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Neuroscience from Zero, part 3 of 8",
+      "notes": "You will learn to: Describe chemical synaptic transmission and excitation versus inhibition. Watch first: The action potential, step by step."
+    },
+    {
+      "id": "neuro-04",
+      "title": "Dopamine is not the pleasure chemical",
+      "category": "neuro",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Neuroscience from Zero, part 4 of 8",
+      "notes": "You will learn to: Explain dopamine as a learning signal (reward prediction error). Watch first: Synapses: how neurons talk."
+    },
+    {
+      "id": "neuro-05",
+      "title": "How the brain learns: plasticity",
+      "category": "neuro",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Neuroscience from Zero, part 5 of 8",
+      "notes": "You will learn to: Explain Hebbian learning, LTP and why practice changes the brain. Watch first: Synapses: how neurons talk."
+    },
+    {
+      "id": "neuro-06",
+      "title": "Measuring the brain: EEG, MEG and fMRI",
+      "category": "neuro",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Neuroscience from Zero, part 6 of 8",
+      "notes": "You will learn to: Say what each method measures, and its time and space resolution. Watch first: The action potential, step by step."
+    },
+    {
+      "id": "neuro-07",
+      "title": "Brain networks and rhythms",
+      "category": "neuro",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Neuroscience from Zero, part 7 of 8",
+      "notes": "You will learn to: Explain oscillations (alpha, gamma...) and functional networks without myths. Watch first: Measuring the brain: EEG, MEG and fMRI."
+    },
+    {
+      "id": "neuro-08",
+      "title": "Real neurons vs artificial neural networks",
+      "category": "neuro",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Neuroscience from Zero, part 8 of 8",
+      "notes": "You will learn to: Compare what deep learning borrowed from the brain and what it did not. Watch first: How the brain learns: plasticity."
+    },
+    {
+      "id": "eng-01",
+      "title": "What is a signal? From sound to EEG",
+      "category": "engineering",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Signals and Systems, Explained, part 1 of 7",
+      "notes": "You will learn to: Describe signals in time, and the idea of amplitude, frequency and phase."
+    },
+    {
+      "id": "eng-02",
+      "title": "Sampling and the Nyquist rule",
+      "category": "engineering",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Signals and Systems, Explained, part 2 of 7",
+      "notes": "You will learn to: Choose a sampling rate and explain aliasing with an example. Watch first: What is a signal? From sound to EEG."
+    },
+    {
+      "id": "eng-03",
+      "title": "The Fourier transform without fear",
+      "category": "engineering",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Signals and Systems, Explained, part 3 of 7",
+      "notes": "You will learn to: Compute and read a spectrum in Python and say what the FFT is doing. Watch first: Sampling and the Nyquist rule."
+    },
+    {
+      "id": "eng-04",
+      "title": "Filters: keeping what you want",
+      "category": "engineering",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Signals and Systems, Explained, part 4 of 7",
+      "notes": "You will learn to: Design and apply low-, high- and band-pass filters, and see their side effects. Watch first: The Fourier transform without fear."
+    },
+    {
+      "id": "eng-05",
+      "title": "Noise, artifacts and cleaning real recordings",
+      "category": "engineering",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Signals and Systems, Explained, part 5 of 7",
+      "notes": "You will learn to: Spot and remove line noise and artifacts in a real EEG recording. Watch first: Filters: keeping what you want."
+    },
+    {
+      "id": "eng-06",
+      "title": "Feedback and control: how a thermostat thinks",
+      "category": "engineering",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Signals and Systems, Explained, part 6 of 7",
+      "notes": "You will learn to: Explain feedback loops and PID control with a simulation. Watch first: What is a signal? From sound to EEG."
+    },
+    {
+      "id": "eng-07",
+      "title": "Project: build an EEG band-power analyser in Python",
+      "category": "engineering",
+      "complexity": "advanced",
+      "series": true,
+      "seriesInfo": "Signals and Systems, Explained, part 7 of 7",
+      "notes": "You will learn to: Go from a raw open dataset to band-power plots, with code in the repo. Watch first: Noise, artifacts and cleaning real recordings."
+    },
+    {
+      "id": "data-01",
+      "title": "Set up Python for data analysis",
+      "category": "data",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Data Analysis from Zero (Python), part 1 of 8",
+      "notes": "You will learn to: Install Python, Jupyter and pandas, and run a first notebook."
+    },
+    {
+      "id": "data-02",
+      "title": "pandas: load, explore, clean",
+      "category": "data",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Data Analysis from Zero (Python), part 2 of 8",
+      "notes": "You will learn to: Load a real CSV, find missing and wrong values, and fix them reproducibly. Watch first: Set up Python for data analysis."
+    },
+    {
+      "id": "data-03",
+      "title": "Plots that tell the truth",
+      "category": "data",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Data Analysis from Zero (Python), part 3 of 8",
+      "notes": "You will learn to: Pick the right chart and avoid misleading axes and averages. Watch first: pandas: load, explore, clean."
+    },
+    {
+      "id": "data-04",
+      "title": "Statistics you actually need",
+      "category": "data",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Data Analysis from Zero (Python), part 4 of 8",
+      "notes": "You will learn to: Use mean, median, variance and distributions correctly, with real data. Watch first: Plots that tell the truth."
+    },
+    {
+      "id": "data-05",
+      "title": "p-values, done correctly",
+      "category": "data",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Data Analysis from Zero (Python), part 5 of 8",
+      "notes": "You will learn to: Say what a p-value is and is not, and run a test without p-hacking. Watch first: Statistics you actually need."
+    },
+    {
+      "id": "data-06",
+      "title": "Correlation, regression and confounders",
+      "category": "data",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Data Analysis from Zero (Python), part 6 of 8",
+      "notes": "You will learn to: Fit a regression and explain why correlation is not causation, with an example. Watch first: p-values, done correctly."
+    },
+    {
+      "id": "data-07",
+      "title": "Machine learning with scikit-learn, honestly",
+      "category": "data",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Data Analysis from Zero (Python), part 7 of 8",
+      "notes": "You will learn to: Train, validate and test a model and catch data leakage. Watch first: Correlation, regression and confounders."
+    },
+    {
+      "id": "data-08",
+      "title": "Project: analyse an open dataset end to end",
+      "category": "data",
+      "complexity": "advanced",
+      "series": true,
+      "seriesInfo": "Data Analysis from Zero (Python), part 8 of 8",
+      "notes": "You will learn to: Question, clean, analyse, model and present, with the notebook in the repo. Watch first: Machine learning with scikit-learn, honestly."
+    },
+    {
+      "id": "trade-01",
+      "title": "Market data in Python: prices, candles, returns",
+      "category": "trading",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Algo Trading with Python - Education Only, part 1 of 8",
+      "notes": "You will learn to: Load price data and compute simple and log returns correctly. Watch first: pandas: load, explore, clean."
+    },
+    {
+      "id": "trade-02",
+      "title": "Risk first: volatility and drawdown",
+      "category": "trading",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Algo Trading with Python - Education Only, part 2 of 8",
+      "notes": "You will learn to: Measure volatility and maximum drawdown and explain why they matter more than returns. Watch first: Market data in Python: prices, candles, returns."
+    },
+    {
+      "id": "trade-03",
+      "title": "Build a backtester from scratch",
+      "category": "trading",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Algo Trading with Python - Education Only, part 3 of 8",
+      "notes": "You will learn to: Write a simple event-by-event backtester and test it on a toy strategy. Watch first: Risk first: volatility and drawdown."
+    },
+    {
+      "id": "trade-04",
+      "title": "Costs and slippage: why most backtests lie",
+      "category": "trading",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Algo Trading with Python - Education Only, part 4 of 8",
+      "notes": "You will learn to: Add fees and slippage and show how much they change the result. Watch first: Build a backtester from scratch."
+    },
+    {
+      "id": "trade-05",
+      "title": "Overfitting, look-ahead and survivorship bias",
+      "category": "trading",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Algo Trading with Python - Education Only, part 5 of 8",
+      "notes": "You will learn to: Recognise the three biases in real backtests and test against them. Watch first: Costs and slippage: why most backtests lie."
+    },
+    {
+      "id": "trade-06",
+      "title": "Walk-forward testing and out-of-sample data",
+      "category": "trading",
+      "complexity": "advanced",
+      "series": true,
+      "seriesInfo": "Algo Trading with Python - Education Only, part 6 of 8",
+      "notes": "You will learn to: Split data properly and validate a strategy walk-forward. Watch first: Overfitting, look-ahead and survivorship bias."
+    },
+    {
+      "id": "trade-07",
+      "title": "Position sizing and risk management",
+      "category": "trading",
+      "complexity": "advanced",
+      "series": true,
+      "seriesInfo": "Algo Trading with Python - Education Only, part 7 of 8",
+      "notes": "You will learn to: Size positions by risk and explain why sizing matters more than signals. Watch first: Walk-forward testing and out-of-sample data."
+    },
+    {
+      "id": "trade-08",
+      "title": "Paper trading, regulation and staying honest",
+      "category": "trading",
+      "complexity": "advanced",
+      "series": true,
+      "seriesInfo": "Algo Trading with Python - Education Only, part 8 of 8",
+      "notes": "You will learn to: Paper trade safely and know what SEBI rules mean for advice and tips. Watch first: Position sizing and risk management."
+    },
+    {
+      "id": "res-01",
+      "title": "What psychosis is, and what it is not",
+      "category": "research",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "The Computational Brain: Psychosis Research Explained, part 1 of 8",
+      "notes": "You will learn to: Describe psychosis accurately, without stigma, and separate it from movie myths. Mental-health rules in writing-style.md apply to this whole series."
+    },
+    {
+      "id": "res-02",
+      "title": "What is computational psychiatry?",
+      "category": "research",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "The Computational Brain: Psychosis Research Explained, part 2 of 8",
+      "notes": "You will learn to: Explain why maths and models are used to study mental illness. Watch first: What psychosis is, and what it is not."
+    },
+    {
+      "id": "res-03",
+      "title": "The predictive brain",
+      "category": "research",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "The Computational Brain: Psychosis Research Explained, part 3 of 8",
+      "notes": "You will learn to: Explain predictive coding: the brain as a prediction machine that learns from errors. Watch first: Dopamine is not the pleasure chemical."
+    },
+    {
+      "id": "res-04",
+      "title": "When predictions go wrong: predictive coding and psychosis",
+      "category": "research",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "The Computational Brain: Psychosis Research Explained, part 4 of 8",
+      "notes": "You will learn to: Explain how altered prediction and precision could lead to hallucinations and delusions. Watch first: The predictive brain."
+    },
+    {
+      "id": "res-05",
+      "title": "Dopamine and aberrant salience",
+      "category": "research",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "The Computational Brain: Psychosis Research Explained, part 5 of 8",
+      "notes": "You will learn to: Explain the aberrant salience hypothesis and what evidence supports and limits it. Watch first: When predictions go wrong: predictive coding and psychosis."
+    },
+    {
+      "id": "res-06",
+      "title": "Modelling belief updating: reinforcement learning and Bayesian models",
+      "category": "research",
+      "complexity": "advanced",
+      "series": true,
+      "seriesInfo": "The Computational Brain: Psychosis Research Explained, part 6 of 8",
+      "notes": "You will learn to: Fit a simple learning model to choice data and read its parameters. Watch first: Dopamine and aberrant salience."
+    },
+    {
+      "id": "res-07",
+      "title": "Brain signals in psychosis: EEG and mismatch negativity",
+      "category": "research",
+      "complexity": "advanced",
+      "series": true,
+      "seriesInfo": "The Computational Brain: Psychosis Research Explained, part 7 of 8",
+      "notes": "You will learn to: Explain mismatch negativity and why it is studied as a marker in psychosis. Watch first: Noise, artifacts and cleaning real recordings."
+    },
+    {
+      "id": "res-08",
+      "title": "Inside my PhD: a computational psychosis study, start to finish",
+      "category": "research",
+      "complexity": "advanced",
+      "series": true,
+      "seriesInfo": "The Computational Brain: Psychosis Research Explained, part 8 of 8",
+      "notes": "You will learn to: Walk through a real study's question, data, model and limits. Watch first: Modelling belief updating: reinforcement learning and Bayesian models. Only what is published or cleared to share. TODO: confirm what can be shown."
+    },
+    {
+      "id": "skills-01",
+      "title": "How to learn any technical subject properly",
+      "category": "skills",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Learn It Right: Research Skills for Students, part 1 of 8",
+      "notes": "You will learn to: Use active recall, spaced practice and projects instead of rewatching videos."
+    },
+    {
+      "id": "skills-02",
+      "title": "How to read a research paper",
+      "category": "skills",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Learn It Right: Research Skills for Students, part 2 of 8",
+      "notes": "You will learn to: Read a paper in three passes and pull out the question, method and limits."
+    },
+    {
+      "id": "skills-03",
+      "title": "Finding papers: Google Scholar, PubMed and arXiv",
+      "category": "skills",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Learn It Right: Research Skills for Students, part 3 of 8",
+      "notes": "You will learn to: Search the literature systematically and keep track of what you read. Watch first: How to read a research paper."
+    },
+    {
+      "id": "skills-04",
+      "title": "Reproduce a paper: the best first research project",
+      "category": "skills",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Learn It Right: Research Skills for Students, part 4 of 8",
+      "notes": "You will learn to: Pick a paper with open code and data and reproduce one result. Watch first: Finding papers: Google Scholar, PubMed and arXiv."
+    },
+    {
+      "id": "skills-05",
+      "title": "How to start research as an undergraduate",
+      "category": "skills",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Learn It Right: Research Skills for Students, part 5 of 8",
+      "notes": "You will learn to: Find a lab or project, write to a professor and apply for summer research programmes."
+    },
+    {
+      "id": "skills-06",
+      "title": "Writing your first paper",
+      "category": "skills",
+      "complexity": "intermediate",
+      "series": true,
+      "seriesInfo": "Learn It Right: Research Skills for Students, part 6 of 8",
+      "notes": "You will learn to: Structure a paper and know what reviewers look for. Watch first: Reproduce a paper: the best first research project."
+    },
+    {
+      "id": "skills-07",
+      "title": "Failure, rejection and motivation in research",
+      "category": "skills",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Learn It Right: Research Skills for Students, part 7 of 8",
+      "notes": "You will learn to: Handle failed experiments and rejections with a plan, not panic."
+    },
+    {
+      "id": "skills-08",
+      "title": "PhD life, honestly",
+      "category": "skills",
+      "complexity": "beginner",
+      "series": true,
+      "seriesInfo": "Learn It Right: Research Skills for Students, part 8 of 8",
+      "notes": "You will learn to: Give a realistic picture of a PhD: time, money, supervision, and what makes it worth it."
+    }
+  ]
+}

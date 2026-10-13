@@ -1,0 +1,34 @@
+name: Suggest a video
+description: Tell us what you want to learn next
+title: "[Suggestion] "
+labels: ["video-suggestion"]
+body:
+  - type: textarea
+    id: topic
+    attributes:
+      label: What do you want to learn?
+      description: The topic, and what you would like to be able to do after the video.
+    validations:
+      required: true
+  - type: dropdown
+    id: series
+    attributes:
+      label: Which series does it fit?
+      options:
+        - Neuroscience from Zero
+        - Signals and Systems
+        - Data Analysis from Zero
+        - Algo Trading with Python (education only)
+        - The Computational Brain (psychosis research)
+        - Learn It Right (research skills)
+        - Something else
+  - type: dropdown
+    id: language
+    attributes:
+      label: Preferred language
+      options: [English, Hindi, Bengali]
+  - type: textarea
+    id: background
+    attributes:
+      label: What do you already know?
+      description: Helps pitch the video at the right level.

@@ -1,0 +1,132 @@
+# TubeFlow configuration for the Ayan Das channel.
+# setup-channel.sh copies this to the repo root as config.yaml (which is gitignored),
+# then fills the {{VARIABLE}} placeholders in the agents, commands and templates.
+# Lines marked TODO still need a value from you.
+
+version: "1.0"
+
+channel:
+  name: "Ayan Das"
+  handle: "@ayandas9197"
+  url: "https://www.youtube.com/@ayandas9197"
+  tagline: "Learn science, engineering and data the right way"
+  niche: "stem-education"
+
+# Languages the channel publishes in. The first one is the default for scripts,
+# titles and descriptions; the others are written as YouTube localizations.
+languages:
+  primary: "en"
+  also: ["hi", "bn"]
+
+voice:
+  style_file: "writing-style.md"
+  channel_overview_file: "channel-overview.md"
+  tone: "educational"
+  # Narration is ElevenLabs text-to-speech for now (automation/voiceover.py). Scripts are written to
+  # be read by a TTS engine (see writing-style.md). Switch to "human" once your own voice is in.
+  narration: "ai-tts"
+
+structure:
+  type: "markdown"
+  # Folder names match the paths the upstream agents use; change them only together.
+  youtube_root: "03-YouTube"
+  social_root: "04-Social"
+  templates_root: "05-Templates"
+  ideas_folder: "ideas"
+  drafts_folder: "drafts"
+  published_folder: "published"
+  research_folder: "research"
+
+links:
+  discord: ""                                     # TODO, or leave empty if you have no community server
+  business: ""                                    # TODO contact page or form (never an email address in public text)
+  github_org: "https://github.com/hackayan"
+  voting_repo: "https://github.com/hackayan/ayandas-videos"   # TODO create this public repo (see docs/AUTOMATION.md)
+  docker_repo: ""
+  linkedin: "https://www.linkedin.com/in/ayan-d99"
+  facebook: "https://www.facebook.com/share/1dW2RKAF5u/"
+  twitter: ""                                     # TODO your X profile URL (leave empty to skip X links)
+  reviews: ""
+  featured_video: ""                              # TODO your best "start here" video
+  featured_video_title: ""
+
+features:
+  public_repo_sync: true
+  social_media: true
+  research_agents: true
+  # This was for crediting open-source projects on a self-hosting channel.
+  # Citations of papers are handled by the research rules in CLAUDE.md instead.
+  sponsorship_research: false
+  obsidian_links: false
+  include_about_section: true
+
+about:
+  company_name: "Ayan Das"
+  established: ""
+  location: ""                                    # TODO optional
+  tagline: "PhD researcher teaching science, engineering, data analysis and research skills to students"
+  application_url: ""
+
+# Settings for automation/ytapi.py (YouTube Data + Analytics API).
+youtube_api:
+  # Download the OAuth client file from Google Cloud Console and save it here.
+  client_secret_file: "~/.config/tubeflow/client_secret.json"
+  token_file: "~/.config/tubeflow/token.json"
+  data_dir: "data"                                # gitignored: your analytics stay on your computer
+  # Uploads always go up private unless you pass --privacy explicitly.
+  default_privacy: "private"
+  # Seed searches for /trend. Edit freely.
+  trend_queries:
+    - "how to start research as a student"
+    - "computer science explained"
+    - "neuroscience explained"
+    - "engineering explained for students"
+    - "data analysis python tutorial"
+    - "statistics for data science"
+    - "algorithmic trading python backtest"
+    - "machine learning for beginners"
+    - "how to read a research paper"
+    - "how to learn anything fast students"
+
+# ElevenLabs narration (automation/voiceover.py). The API key goes in the ELEVENLABS_API_KEY
+# environment variable, never in this file.
+voiceover:
+  provider: "elevenlabs"
+  voice_id: ""                                    # TODO pick a voice in ElevenLabs and paste its Voice ID
+  # Model per language; check https://elevenlabs.io/docs/models for current language support.
+  models:
+    en: "eleven_multilingual_v2"
+    hi: "eleven_multilingual_v2"
+    bn: "eleven_v3"
+  output_format: "mp3_44100_128"
+  max_chars: 2500                                 # characters per request; one part per request
+  stability: 0.5
+  similarity_boost: 0.75
+
+# Playlists and series: profile/series-plan.yaml (see automation/plan.py and `ytapi.py playlists`).
+
+# Categories for the public video catalog (VIDEOS.md in the voting repo), one per pillar.
+# A video goes in every section whose keywords appear in its title or description.
+categories:
+  keywords:
+    Neuroscience: ["neuro", "brain", "neuron", "eeg", "fmri", "dopamine", "synapse"]
+    Engineering: ["signal", "fourier", "fft", "filter", "sampling", "control", "engineering"]
+    Data Analysis: ["data analysis", "pandas", "statistics", "p-value", "regression", "scikit", "dataset"]
+    Algo Trading: ["trading", "backtest", "market", "stock", "portfolio", "drawdown"]
+    Research: ["psychosis", "psychiatry", "predictive coding", "computational", "my phd", "schizophrenia"]
+    Learning Skills: ["research paper", "learn", "phd life", "how to start research", "motivation"]
+  sections:
+    Neuroscience: "## Neuroscience from Zero"
+    Engineering: "## Signals and Systems"
+    Data Analysis: "## Data Analysis"
+    Algo Trading: "## Algo Trading (Education Only)"
+    Research: "## Computational Psychiatry and Psychosis"
+    Learning Skills: "## Learning and Research Skills"
+    Tools: "## More Videos"
+
+advanced:
+  research_model: "haiku"
+  strategy_model: "opus"
+  content_model: "sonnet"
+  parallel_research: true
+  auto_publish_prompt: true
