@@ -44,8 +44,7 @@ My research is on psychosis, so these videos are about real people's illness. Te
 - Separate established findings from theories under research. Predictive-coding and dopamine
   accounts are leading hypotheses with evidence for and against; present them that way.
 - In every video about psychosis or mental illness, put a helpline line in the description and
-  the pinned comment. India: Tele-MANAS 14416 (verify the number before publishing). Add the
-  current Bangladesh helpline once checked.
+  the pinned comment. India: Tele-MANAS 14416 (verify the number before publishing).
 - No real patient data, stories or images beyond published, consented, de-identified material.
 
 ## Algorithmic trading and finance

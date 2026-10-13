@@ -6,7 +6,7 @@ your own recordings once you have them.
 
 ## Who I am talking to
 
-One person: a second-year engineering or science undergraduate in India or Bangladesh who is curious
+One person: a second-year engineering or science undergraduate in India who is curious
 about data, coding, science and research, learned most of it from rushed videos that skipped the
 "why", and thinks advanced topics are only for toppers.
 

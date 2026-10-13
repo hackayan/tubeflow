@@ -30,8 +30,9 @@ and they can be taught correctly.
 
 ## Who it is for
 
-Students, from school leavers to PhD students, in India and Bangladesh and anywhere else English,
-Hindi or Bengali is spoken. They are curious but often learned things from rushed or wrong sources,
+Students in India, from school leavers to PhD students, who learn in English, Hindi or Bengali
+(West Bengal especially). Examples, exams and context are Indian: JEE/NEET and university
+coursework, Indian institutes and fellowships, NSE data for trading. They are curious but often learned things from rushed or wrong sources,
 and many think research and advanced topics are "not for them".
 
 ## Teaching promise

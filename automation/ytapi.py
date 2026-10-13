@@ -589,7 +589,7 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--channels", type=int, default=10)
     s.add_argument("--per-channel", type=int, default=15)
     s.add_argument("--lang", help="relevanceLanguage, for example en, hi, bn")
-    s.add_argument("--region", help="regionCode, for example IN or BD")
+    s.add_argument("--region", help="regionCode, for example IN")
     s = sub.add_parser("upload", help="upload a video (private unless you say otherwise)")
     s.add_argument("file")
     s.add_argument("--meta", required=True, help="JSON with title, description, tags, localizations...")

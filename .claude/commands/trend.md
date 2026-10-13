@@ -10,8 +10,9 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, Task
    ```bash
    python automation/ytapi.py trends $ARGUMENTS
    python automation/ytapi.py trends $ARGUMENTS --lang hi --region IN
-   python automation/ytapi.py trends $ARGUMENTS --lang bn --region BD
+   python automation/ytapi.py trends $ARGUMENTS --lang bn --region IN
    ```
+   Bengali searches use region IN: the Bengali-speaking audience here is West Bengal.
    Each query costs about 100 of the 10,000 free daily API units. Do not run more than about 30 queries a day.
 
 2. **Rank.** Follow `.claude/skills/yt-viral/SKILL.md`:

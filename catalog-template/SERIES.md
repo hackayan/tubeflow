@@ -18,6 +18,7 @@ How the brain works, from one neuron to whole-brain networks, taught for student
 | 6 | Measuring the brain: EEG, MEG and fMRI | Intermediate | Say what each method measures, and its time and space resolution. | The action potential, step by step |
 | 7 | Brain networks and rhythms | Intermediate | Explain oscillations (alpha, gamma...) and functional networks without myths. | Measuring the brain: EEG, MEG and fMRI |
 | 8 | Real neurons vs artificial neural networks | Intermediate | Compare what deep learning borrowed from the brain and what it did not. | How the brain learns: plasticity |
+| 9 | GPT for brain signals: EEG foundation models | Advanced | Explain how a model pretrained on lots of EEG is reused for new tasks, and its limits. | Real neurons vs artificial neural networks |
 
 Shorts: A neuron is not a wire · All-or-nothing: why neurons spike, not dim · The dopamine myth in 45 seconds
 
@@ -36,8 +37,10 @@ The engineering behind sound, images, sensors and brain recordings: sampling, fr
 | 5 | Noise, artifacts and cleaning real recordings | Intermediate | Spot and remove line noise and artifacts in a real EEG recording. | Filters: keeping what you want |
 | 6 | Feedback and control: how a thermostat thinks | Intermediate | Explain feedback loops and PID control with a simulation. | What is a signal? From sound to EEG |
 | 7 | Project: build an EEG band-power analyser in Python | Advanced | Go from a raw open dataset to band-power plots, with code in the repo. | Noise, artifacts and cleaning real recordings |
+| 8 | Brain-computer interfaces: how they actually work | Intermediate | Explain the BCI loop - record, decode, feed back - and what limits speed and accuracy. | Noise, artifacts and cleaning real recordings |
+| 9 | Decoding typed sentences from brain signals (Brain2Qwerty) | Advanced | Walk through a non-invasive brain-to-text study: setup, model, results and what it cannot do. | Brain-computer interfaces: how they actually work |
 
-Shorts: Why wheels spin backwards on video
+Shorts: Why wheels spin backwards on video · Typing with your brain: how close are we?
 
 ## Data Analysis from Zero (Python)
 
@@ -55,6 +58,7 @@ Real data analysis the correct way: Python, pandas, statistics, plots and machin
 | 6 | Correlation, regression and confounders | Intermediate | Fit a regression and explain why correlation is not causation, with an example. | p-values, done correctly |
 | 7 | Machine learning with scikit-learn, honestly | Intermediate | Train, validate and test a model and catch data leakage. | Correlation, regression and confounders |
 | 8 | Project: analyse an open dataset end to end | Advanced | Question, clean, analyse, model and present, with the notebook in the repo. | Machine learning with scikit-learn, honestly |
+| 9 | Machine learning on brain scans with nilearn | Advanced | Decode a condition from fMRI data with nilearn and validate it without leakage. | Machine learning with scikit-learn, honestly |
 
 Shorts: The same data, two opposite charts · What a p-value is NOT
 
@@ -74,6 +78,7 @@ Markets as a data-science and engineering problem: data, returns, risk, and buil
 | 6 | Walk-forward testing and out-of-sample data | Advanced | Split data properly and validate a strategy walk-forward. | Overfitting, look-ahead and survivorship bias |
 | 7 | Position sizing and risk management | Advanced | Size positions by risk and explain why sizing matters more than signals. | Walk-forward testing and out-of-sample data |
 | 8 | Paper trading, regulation and staying honest | Advanced | Paper trade safely and know what SEBI rules mean for advice and tips. | Position sizing and risk management |
+| 9 | Can you detect a bubble? The LPPLS model, tested honestly | Advanced | Fit LPPLS to a past bubble and show why its predictive power is debated. | Walk-forward testing and out-of-sample data |
 
 Shorts: A 50% loss needs a 100% gain · The backtest that was too good to be true
 
@@ -93,6 +98,8 @@ Computational neuroscience applied to psychosis, from a PhD researcher in the fi
 | 6 | Modelling belief updating: reinforcement learning and Bayesian models | Advanced | Fit a simple learning model to choice data and read its parameters. | Dopamine and aberrant salience |
 | 7 | Brain signals in psychosis: EEG and mismatch negativity | Advanced | Explain mismatch negativity and why it is studied as a marker in psychosis. | Noise, artifacts and cleaning real recordings |
 | 8 | Inside my PhD: a computational psychosis study, start to finish | Advanced | Walk through a real study's question, data, model and limits. | Modelling belief updating: reinforcement learning and Bayesian models |
+| 9 | How decisions are made: drift diffusion models | Advanced | Fit a hierarchical drift diffusion model to choice and reaction-time data and read it. | Modelling belief updating: reinforcement learning and Bayesian models |
+| 10 | Information flow in the brain: transfer entropy | Advanced | Explain transfer entropy and compute it between two signals with JIDT, with its pitfalls. | How decisions are made: drift diffusion models |
 
 Shorts: Your brain sees what it expects
 
@@ -112,5 +119,6 @@ How to learn a new field properly, read papers, start research as a student and 
 | 6 | Writing your first paper | Intermediate | Structure a paper and know what reviewers look for. | Reproduce a paper: the best first research project |
 | 7 | Failure, rejection and motivation in research | Beginner | Handle failed experiments and rejections with a plan, not panic. | - |
 | 8 | PhD life, honestly | Beginner | Give a realistic picture of a PhD: time, money, supervision, and what makes it worth it. | - |
+| 9 | Transcribe and search your lectures with WhisperX | Beginner | Turn recorded lectures into searchable, timestamped notes on your own computer. | How to learn any technical subject properly |
 
 Shorts: Rewatching is not learning
