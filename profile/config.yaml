@@ -1,0 +1,93 @@
+# TubeFlow configuration for the Ayan Das channel.
+# setup-channel.sh copies this to the repo root as config.yaml (which is gitignored),
+# then fills the {{VARIABLE}} placeholders in the agents, commands and templates.
+# Lines marked TODO still need a value from you.
+
+version: "1.0"
+
+channel:
+  name: "Ayan Das"
+  handle: "@ayandas9197"
+  url: "https://www.youtube.com/@ayandas9197"
+  tagline: "Computer science, neuroscience and the real life of a PhD"
+  niche: "research-education"
+
+# Languages the channel publishes in. The first one is the default for scripts,
+# titles and descriptions; the others are written as YouTube localizations.
+languages:
+  primary: "en"
+  also: ["hi", "bn"]
+
+voice:
+  style_file: "writing-style.md"
+  channel_overview_file: "channel-overview.md"
+  tone: "educational"
+  # Narration is AI text-to-speech for now. Scripts are written to be read by a
+  # TTS engine (see writing-style.md). Switch to "human" once your own voice is in.
+  narration: "ai-tts"
+
+structure:
+  type: "markdown"
+  # Folder names match the paths the upstream agents use; change them only together.
+  youtube_root: "03-YouTube"
+  social_root: "04-Social"
+  templates_root: "05-Templates"
+  ideas_folder: "ideas"
+  drafts_folder: "drafts"
+  published_folder: "published"
+  research_folder: "research"
+
+links:
+  discord: ""                                     # TODO, or leave empty if you have no community server
+  business: ""                                    # TODO contact page or form (never an email address in public text)
+  github_org: "https://github.com/hackayan"
+  voting_repo: "https://github.com/hackayan/ayandas-videos"   # TODO create this public repo (see docs/AUTOMATION.md)
+  docker_repo: ""
+  linkedin: ""                                    # TODO your LinkedIn profile URL
+  facebook: ""                                    # TODO your Facebook page URL
+  twitter: ""                                     # TODO your X profile URL
+  reviews: ""
+  featured_video: ""                              # TODO your best "start here" video
+  featured_video_title: ""
+
+features:
+  public_repo_sync: true
+  social_media: true
+  research_agents: true
+  # This was for crediting open-source projects on a self-hosting channel.
+  # Citations of papers are handled by the research rules in CLAUDE.md instead.
+  sponsorship_research: false
+  obsidian_links: false
+  include_about_section: true
+
+about:
+  company_name: "Ayan Das"
+  established: ""
+  location: ""                                    # TODO optional
+  tagline: "PhD researcher explaining computer science and neuroscience to students"
+  application_url: ""
+
+# Settings for automation/ytapi.py (YouTube Data + Analytics API).
+youtube_api:
+  # Download the OAuth client file from Google Cloud Console and save it here.
+  client_secret_file: "~/.config/tubeflow/client_secret.json"
+  token_file: "~/.config/tubeflow/token.json"
+  data_dir: "data"                                # gitignored: your analytics stay on your computer
+  # Uploads always go up private unless you pass --privacy explicitly.
+  default_privacy: "private"
+  # Seed searches for /trend. Edit freely.
+  trend_queries:
+    - "how to start research as a student"
+    - "phd life computer science"
+    - "neuroscience explained"
+    - "computational neuroscience"
+    - "machine learning for beginners"
+    - "how to read a research paper"
+    - "research motivation for students"
+
+advanced:
+  research_model: "haiku"
+  strategy_model: "opus"
+  content_model: "sonnet"
+  parallel_research: true
+  auto_publish_prompt: true

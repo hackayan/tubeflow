@@ -65,3 +65,13 @@ htmlcov/
 *.tmp
 *.temp
 .cache/
+
+# Channel automation: private YouTube data (analytics, comments with viewer names)
+data/
+# Copied in by setup-channel.sh from youtube-agent-skill
+.claude/skills/yt-*/
+# Channel working folders: unreleased drafts, research and audience stats.
+# This fork is public; keep these local (or move the fork to a private repo before committing them).
+03-YouTube/
+04-Social/
+05-Templates/
