@@ -71,6 +71,12 @@ playlists:
         level: intermediate
         builds_on: neuro-05
         goal: "Compare what deep learning borrowed from the brain and what it did not."
+      - id: neuro-09
+        title: "GPT for brain signals: EEG foundation models"
+        level: advanced
+        builds_on: neuro-08
+        goal: "Explain how a model pretrained on lots of EEG is reused for new tasks, and its limits."
+        sources: ["Wang et al. 2024, NeurIPS (EEGPT)"]
 
   - id: engineering
     pillar: Engineering
@@ -109,6 +115,7 @@ playlists:
         level: intermediate
         builds_on: eng-04
         goal: "Spot and remove line noise and artifacts in a real EEG recording."
+        sources: ["Gabard-Durnam et al. 2018, Frontiers in Neuroscience (HAPPE pipeline)"]
       - id: eng-06
         title: "Feedback and control: how a thermostat thinks"
         level: intermediate
@@ -119,6 +126,19 @@ playlists:
         level: advanced
         builds_on: eng-05
         goal: "Go from a raw open dataset to band-power plots, with code in the repo."
+      - id: eng-08
+        title: "Brain-computer interfaces: how they actually work"
+        level: intermediate
+        builds_on: eng-05
+        goal: "Explain the BCI loop - record, decode, feed back - and what limits speed and accuracy."
+        sources: ["Memmott et al. 2021, Journal of Neural Engineering (BciPy)"]
+        shorts: ["Typing with your brain: how close are we?"]
+      - id: eng-09
+        title: "Decoding typed sentences from brain signals (Brain2Qwerty)"
+        level: advanced
+        builds_on: eng-08
+        goal: "Walk through a non-invasive brain-to-text study: setup, model, results and what it cannot do."
+        sources: ["Levy et al. 2025, Meta AI, Brain2Qwerty (verify the exact citation and venue)"]
 
   - id: data
     pillar: Data analysis
@@ -174,6 +194,12 @@ playlists:
         level: advanced
         builds_on: data-07
         goal: "Question, clean, analyse, model and present, with the notebook in the repo."
+      - id: data-09
+        title: "Machine learning on brain scans with nilearn"
+        level: advanced
+        builds_on: data-07
+        goal: "Decode a condition from fMRI data with nilearn and validate it without leakage."
+        sources: ["Abraham et al. 2014, Frontiers in Neuroinformatics"]
 
   - id: trading
     pillar: Algorithmic trading
@@ -229,6 +255,13 @@ playlists:
         level: advanced
         builds_on: trade-07
         goal: "Paper trade safely and know what SEBI rules mean for advice and tips."
+      - id: trade-09
+        title: "Can you detect a bubble? The LPPLS model, tested honestly"
+        level: advanced
+        builds_on: trade-06
+        goal: "Fit LPPLS to a past bubble and show why its predictive power is debated."
+        sources: ["Johansen, Ledoit & Sornette 2000, International Journal of Theoretical and Applied Finance", "Sornette 2003, Why Stock Markets Crash"]
+        notes: "Education only. Test on past data and show the failures as clearly as the hits."
 
   - id: research
     pillar: Interdisciplinary research
@@ -292,6 +325,18 @@ playlists:
         builds_on: res-06
         goal: "Walk through a real study's question, data, model and limits."
         notes: "Only what is published or cleared to share. TODO: confirm what can be shown."
+      - id: res-09
+        title: "How decisions are made: drift diffusion models"
+        level: advanced
+        builds_on: res-06
+        goal: "Fit a hierarchical drift diffusion model to choice and reaction-time data and read it."
+        sources: ["Ratcliff & McKoon 2008, Neural Computation", "Wiecki, Sofer & Frank 2013, Frontiers in Neuroinformatics (HDDM)"]
+      - id: res-10
+        title: "Information flow in the brain: transfer entropy"
+        level: advanced
+        builds_on: res-09
+        goal: "Explain transfer entropy and compute it between two signals with JIDT, with its pitfalls."
+        sources: ["Schreiber 2000, Physical Review Letters", "Lizier 2014, Frontiers in Robotics and AI (JIDT)"]
 
   - id: skills
     pillar: Learning and research skills
@@ -343,3 +388,9 @@ playlists:
         title: "PhD life, honestly"
         level: beginner
         goal: "Give a realistic picture of a PhD: time, money, supervision, and what makes it worth it."
+      - id: skills-09
+        title: "Transcribe and search your lectures with WhisperX"
+        level: beginner
+        builds_on: skills-01
+        goal: "Turn recorded lectures into searchable, timestamped notes on your own computer."
+        sources: ["Bain et al. 2023, Interspeech (WhisperX)"]

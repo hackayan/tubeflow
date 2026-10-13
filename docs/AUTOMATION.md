@@ -133,7 +133,7 @@ transcripts of your recordings, and set `voice.narration: "human"` in `config.ya
 
 ## 6. Playlists and series
 
-`profile/series-plan.yaml` holds six playlists, one per pillar, each a series of 7-8 videos in
+`profile/series-plan.yaml` holds six playlists, one per pillar, each a series of 8-10 videos in
 teaching order, with English, Hindi and Bengali playlist titles (have the translations checked).
 
 ```bash
