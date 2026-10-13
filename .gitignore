@@ -75,7 +75,9 @@ data/
 03-YouTube/
 04-Social/
 05-Templates/
-!profile/writing-style.md
-!profile/channel-overview.md
+!profile/**/writing-style.md
+!profile/**/channel-overview.md
 # Downloaded travel footage (large, personal)
 footage/
+!profile/writing-style.md
+!profile/channel-overview.md
