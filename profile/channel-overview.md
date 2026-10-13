@@ -17,7 +17,11 @@ able to do or explain something they could not before, and wanting to learn the 
 4. **Algorithmic trading:** markets, strategy logic, backtesting and risk, taught as data science
    and engineering. Education only, never financial advice (see writing-style.md).
 5. **Interdisciplinary research:** where fields meet (brain + computing, data + finance, and so on),
-   including my own PhD work. TODO: one paragraph on your research topic so videos describe it accurately.
+   anchored in my own PhD work in computational neuroscience of psychosis: using mathematical and
+   computational models of how the brain learns, predicts and updates beliefs (for example predictive
+   coding and Bayesian or reinforcement-learning models) together with brain and behavioural data,
+   to understand the mechanisms behind psychosis. TODO: add the specific question, methods and data
+   of your thesis, and what is published or cleared to share.
 6. **Learning and research skills:** how to learn a new field, read a paper, start research, and keep
    going when it is hard. The motivation comes from showing that it can be done, step by step.
 

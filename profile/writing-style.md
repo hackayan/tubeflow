@@ -32,6 +32,22 @@ The goal is that students learn the thing *correctly* and can then learn the nex
 - Datasets are named and linked, with their licence. No made-up data presented as real.
 - Say where results would change: random seeds, data leakage, overfitting, survivorship bias.
 
+## Mental health and psychosis
+
+My research is on psychosis, so these videos are about real people's illness. Teach it with care:
+
+- Person-first, non-stigmatising language: "a person with psychosis" or "a person experiencing
+  hallucinations", never "a psychotic", "crazy" or "schizo". No jokes about it.
+- Psychosis is not violence and not "split personality". Correct those myths when they come up.
+- Education only, not medical advice. Never suggest diagnosing yourself or anyone else, or changing
+  or stopping medication. Say "talk to a doctor or psychiatrist".
+- Separate established findings from theories under research. Predictive-coding and dopamine
+  accounts are leading hypotheses with evidence for and against; present them that way.
+- In every video about psychosis or mental illness, put a helpline line in the description and
+  the pinned comment. India: Tele-MANAS 14416 (verify the number before publishing). Add the
+  current Bangladesh helpline once checked.
+- No real patient data, stories or images beyond published, consented, de-identified material.
+
 ## Algorithmic trading and finance
 
 These videos teach the data science and engineering, never what to buy.

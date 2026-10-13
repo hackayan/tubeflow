@@ -10,7 +10,8 @@ Everything runs on your own computer with Claude Code.
 | Learn from the audience (analytics, retention, search terms, comments, language mix) | `/learn` → `automation/ytapi.py snapshot` | Yes, read-only |
 | Find what is working in the niche | `/trend` → `ytapi.py trends` + `yt-viral/swipe.py` | Yes, read-only |
 | Plan the week, research, script, title, thumbnail text, description, chapters, Shorts | `/weekly`, `/youtube full`, `yt-*` skills | Drafts are automatic, you approve them |
-| Voice-over | AI text-to-speech for now (see "AI voice" below) | You generate and edit it |
+| Playlists and series | `profile/series-plan.yaml` → `ytapi.py playlists --yes` (created private) | When you run it |
+| Voice-over | ElevenLabs via `automation/voiceover.py` (see "AI voice" below) | When you run it; you check the audio |
 | Edit the video | `/yt-edit` writes the cut list; you edit | Manual |
 | Upload | `ytapi.py upload` (private by default) or YouTube Studio | Only when you run it |
 | Reply to comments | `/learn` drafts replies; `ytapi.py reply --yes` posts the ones you approve | Only when you approve |
@@ -34,7 +35,7 @@ cd tubeflow
 The script creates `.venv`, installs `automation/requirements.txt`, copies the eleven `yt-*` skills in,
 copies your profile (`profile/`) into place and fills the template placeholders.
 
-Then open `config.yaml` and fill the lines marked `TODO` (social links, voting repo, featured video).
+Then open `config.yaml` and fill the lines marked `TODO` (X link, ElevenLabs voice ID, featured video).
 
 ## 2. Connect YouTube (once, about 10 minutes)
 
@@ -100,31 +101,73 @@ Then run `/youtube publish "topic"`, `/youtube sync` and `/social video "slug"`.
 - One upload can carry titles and descriptions in all three languages (`localizations`). For audio
   in each language, make separate videos, or add translated captions.
 
-## 5. AI voice
+## 5. AI voice (ElevenLabs)
 
-Narration is AI text-to-speech until you send your own recordings. `writing-style.md` makes scripts
-TTS-friendly: short sentences, abbreviations spelled out, on-screen text kept out of the spoken lines.
+Narration is ElevenLabs text-to-speech until you send your own recordings. `writing-style.md` makes
+scripts TTS-friendly: short sentences, abbreviations spelled out, on-screen text kept out of the
+spoken lines.
 
-- Any TTS tool works. ElevenLabs has a Claude connector, so Claude can generate the voice-over from a
-  finished script if you connect it, and it spends your ElevenLabs credits.
-- YouTube requires the "altered or synthetic content" disclosure for realistic synthetic content,
-  for example a cloned voice of a real person. A clearly generic narration voice usually does not
-  need it. If in doubt, set `"synthetic_media": true` in `meta.json`. Check YouTube's current policy.
-- When you have your own voice: replace "How I actually talk" in `~/.claude/youtube/voice.md` with
-  transcripts of your recordings, and set `voice.narration: "human"` in `config.yaml`.
+1. In ElevenLabs, create an API key (Profile → API keys) and put it in your shell, not in a file
+   that gets committed: `export ELEVENLABS_API_KEY=...` (add it to `~/.bashrc` or `~/.zshrc`).
+2. Pick a voice in the Voice Library, copy its Voice ID into `voiceover.voice_id` in `config.yaml`.
+   Try it in Hindi and Bengali too before you commit to it.
+3. Check `voiceover.models`: Multilingual v2 covers English and Hindi; Bengali needs a model that
+   lists it (Eleven v3 does at the time of writing). The ElevenLabs models page has the current list.
+4. Generate:
+   ```bash
+   python automation/voiceover.py 03-YouTube/drafts/SLUG/script.md --dry-run   # free: shows exactly what is read
+   python automation/voiceover.py 03-YouTube/drafts/SLUG/script.md             # English
+   python automation/voiceover.py 03-YouTube/drafts/SLUG/script-hi.md --lang hi
+   python automation/voiceover.py 03-YouTube/drafts/SLUG/script.md --only 3    # redo one part
+   ```
+   You get `voiceover-en/part-NN.mp3` (one per section, to fix a part alone) and a joined
+   `voiceover-en.mp3`. Each run spends about one ElevenLabs credit per character, so use `--dry-run` first.
 
-## 6. Public video catalog and roadmap voting
+YouTube requires the "altered or synthetic content" disclosure for realistic synthetic content, for
+example a cloned voice of a real person. A generic ElevenLabs voice narrating slides usually does
+not need it; a clone of your own or anyone's voice presented as real speech may. If in doubt, set
+`"synthetic_media": true` in `meta.json`, and check YouTube's current policy.
 
-1. Create a public repository for it, for example `hackayan/ayandas-videos`, and put its URL in
-   `links.voting_repo`.
-2. Install and sign in to the GitHub CLI: `gh auth login`.
-3. `python .claude/scripts/create_issues.py` turns your roadmap into issues that viewers vote on with 👍.
-4. `/youtube sync` adds each published video to the catalog and closes its roadmap issue.
+When you have your own voice: replace "How I actually talk" in `~/.claude/youtube/voice.md` with
+transcripts of your recordings, and set `voice.narration: "human"` in `config.yaml`.
 
-Link the voting repo in your descriptions and pinned comments, so the audience can vote on the next
-video. Add their votes to the idea bank in `audience-learnings.md`.
+## 6. Playlists and series
 
-## 7. LinkedIn, X and Facebook
+`profile/series-plan.yaml` holds six playlists, one per pillar, each a series of 7-8 videos in
+teaching order, with English, Hindi and Bengali playlist titles (have the translations checked).
+
+```bash
+python automation/plan.py check                 # validate after editing the plan
+python automation/ytapi.py playlists            # dry run: lists what would be created
+python automation/ytapi.py playlists --yes      # creates the missing playlists, private
+```
+
+Make each playlist public in YouTube Studio when its first video goes live, so nobody lands on an
+empty playlist. When you upload a video, add it to its playlist in Studio.
+
+## 7. Public video catalog and roadmap voting
+
+The catalog lives in https://github.com/hackayan/ayandas-videos: `VIDEOS.md` (published videos),
+`SERIES.md` (the plan) and `roadmap.json`, which becomes one issue per planned video that viewers
+vote on with 👍.
+
+1. Install and sign in to the GitHub CLI: `gh auth login`.
+2. Clone the catalog next to this repo: `git clone https://github.com/hackayan/ayandas-videos.git`
+3. Open the vote issues (once, and again after you change the plan):
+   ```bash
+   cd ../ayandas-videos
+   python ../tubeflow/automation/plan.py roadmap --out roadmap.json
+   python ../tubeflow/automation/plan.py markdown --out SERIES.md
+   python ../tubeflow/.claude/scripts/create_issues.py --dry-run    # check first
+   python ../tubeflow/.claude/scripts/create_issues.py              # creates labels, issues, ROADMAP.md
+   git add -A && git commit -m "Update roadmap" && git push
+   ```
+4. `/youtube sync` adds each published video to `VIDEOS.md` and closes its roadmap issue.
+
+Link the roadmap in descriptions and pinned comments ("vote for the next video"). `/learn` reads
+the votes into the idea bank alongside comments and search terms.
+
+## 8. LinkedIn, X and Facebook
 
 Claude does not log in to your social accounts, and you should never give it a password. `/social`
 writes ready-to-paste posts for each platform into `04-Social/`. To publish them:
@@ -135,8 +178,8 @@ writes ready-to-paste posts for each platform into `04-Social/`. To publish them
   approved for posting, a paid X API plan, and a Meta app with a Facebook Page token. This is not
   built yet; ask if you want it.
 
-Put your profile URLs in `config.yaml` (`links.linkedin`, `links.twitter`, `links.facebook`) so they
-appear in descriptions and posts.
+Your LinkedIn and Facebook links are in `config.yaml`. Add your X profile to `links.twitter` if you
+want X links too.
 
 ## Privacy
 

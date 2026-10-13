@@ -79,7 +79,7 @@ python .claude/scripts/process_templates.py config.yaml "$ROOT"
 say "Done"
 cat <<'TXT'
 Next:
-  1. Fill the TODO lines in config.yaml (social links, voting repo), then re-run the placeholders:
+  1. Fill the TODO lines in config.yaml (X link, ElevenLabs voice ID), then re-run the placeholders:
        git checkout -- .claude/agents .claude/commands .claude/skills templates && ./setup-channel.sh
   2. Connect YouTube: docs/AUTOMATION.md, section "Connect YouTube" (about 10 minutes, once).
   3. Open Claude Code here and run /learn, then /weekly.

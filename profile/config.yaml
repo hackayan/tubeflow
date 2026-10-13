@@ -22,8 +22,8 @@ voice:
   style_file: "writing-style.md"
   channel_overview_file: "channel-overview.md"
   tone: "educational"
-  # Narration is AI text-to-speech for now. Scripts are written to be read by a
-  # TTS engine (see writing-style.md). Switch to "human" once your own voice is in.
+  # Narration is ElevenLabs text-to-speech for now (automation/voiceover.py). Scripts are written to
+  # be read by a TTS engine (see writing-style.md). Switch to "human" once your own voice is in.
   narration: "ai-tts"
 
 structure:
@@ -43,9 +43,9 @@ links:
   github_org: "https://github.com/hackayan"
   voting_repo: "https://github.com/hackayan/ayandas-videos"   # TODO create this public repo (see docs/AUTOMATION.md)
   docker_repo: ""
-  linkedin: ""                                    # TODO your LinkedIn profile URL
-  facebook: ""                                    # TODO your Facebook page URL
-  twitter: ""                                     # TODO your X profile URL
+  linkedin: "https://www.linkedin.com/in/ayan-d99"
+  facebook: "https://www.facebook.com/share/1dW2RKAF5u/"
+  twitter: ""                                     # TODO your X profile URL (leave empty to skip X links)
   reviews: ""
   featured_video: ""                              # TODO your best "start here" video
   featured_video_title: ""
@@ -87,6 +87,42 @@ youtube_api:
     - "machine learning for beginners"
     - "how to read a research paper"
     - "how to learn anything fast students"
+
+# ElevenLabs narration (automation/voiceover.py). The API key goes in the ELEVENLABS_API_KEY
+# environment variable, never in this file.
+voiceover:
+  provider: "elevenlabs"
+  voice_id: ""                                    # TODO pick a voice in ElevenLabs and paste its Voice ID
+  # Model per language; check https://elevenlabs.io/docs/models for current language support.
+  models:
+    en: "eleven_multilingual_v2"
+    hi: "eleven_multilingual_v2"
+    bn: "eleven_v3"
+  output_format: "mp3_44100_128"
+  max_chars: 2500                                 # characters per request; one part per request
+  stability: 0.5
+  similarity_boost: 0.75
+
+# Playlists and series: profile/series-plan.yaml (see automation/plan.py and `ytapi.py playlists`).
+
+# Categories for the public video catalog (VIDEOS.md in the voting repo), one per pillar.
+# A video goes in every section whose keywords appear in its title or description.
+categories:
+  keywords:
+    Neuroscience: ["neuro", "brain", "neuron", "eeg", "fmri", "dopamine", "synapse"]
+    Engineering: ["signal", "fourier", "fft", "filter", "sampling", "control", "engineering"]
+    Data Analysis: ["data analysis", "pandas", "statistics", "p-value", "regression", "scikit", "dataset"]
+    Algo Trading: ["trading", "backtest", "market", "stock", "portfolio", "drawdown"]
+    Research: ["psychosis", "psychiatry", "predictive coding", "computational", "my phd", "schizophrenia"]
+    Learning Skills: ["research paper", "learn", "phd life", "how to start research", "motivation"]
+  sections:
+    Neuroscience: "## Neuroscience from Zero"
+    Engineering: "## Signals and Systems"
+    Data Analysis: "## Data Analysis"
+    Algo Trading: "## Algo Trading (Education Only)"
+    Research: "## Computational Psychiatry and Psychosis"
+    Learning Skills: "## Learning and Research Skills"
+    Tools: "## More Videos"
 
 advanced:
   research_model: "haiku"

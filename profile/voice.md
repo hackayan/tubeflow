@@ -27,7 +27,7 @@ TODO: your own phrases, in English, Hindi and Bengali.
 
 - Results of studies I cannot cite on screen.
 - Unpublished results from my lab unless they are cleared to share.
-- Health, cure or "boost your brain" claims.
+- Health, cure or "boost your brain" claims, or anything that reads as diagnosis or treatment advice.
 - Trading profits, returns or "this strategy works" - education only, never financial advice.
 - Code results I have not actually run.
 - Numbers about my own channel or career that I have not given you.
@@ -36,6 +36,6 @@ TODO: your own phrases, in English, Hindi and Bengali.
 
 - Long videos: 8-25 minutes, one concept, method or worked project, no channel intro, hook in the first 15 seconds.
 - Shorts: under 60 seconds, cut from long videos.
-- Narration: AI text-to-speech (write for it: short sentences, spelled-out abbreviations).
+- Narration: ElevenLabs AI voice (write for it: short sentences, spelled-out abbreviations).
 - On screen: slides, diagrams, paper figures, code. TODO: say if you appear on camera.
 - Languages: English first; Hindi and Bengali versions for the videos the audience asks for.

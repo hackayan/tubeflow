@@ -16,6 +16,7 @@ Usage:
   python automation/ytapi.py snapshot                     # all of the above in one dated folder (/learn uses this)
   python automation/ytapi.py trends ["query" ...]         # niche outliers, input for yt-viral/swipe.py
   python automation/ytapi.py upload video.mp4 --meta meta.json [--privacy private|unlisted|public]
+  python automation/ytapi.py playlists [--yes]            # series playlists from profile/series-plan.yaml
   python automation/ytapi.py reply COMMENT_ID --text "..." [--yes]
 
 Prerequisites:
@@ -484,6 +485,49 @@ def cmd_upload(clients: Clients, args) -> dict:
     return response
 
 
+def cmd_playlists(clients: Clients, args) -> list:
+    """Create the playlists in profile/series-plan.yaml that do not exist yet (matched by English title).
+    New playlists are private unless --privacy says otherwise; Hindi and Bengali titles are added as
+    localizations. Costs about 50 quota units per playlist created."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from plan import load_plan
+
+    plan = load_plan(Path(args.plan))
+    existing, token = {}, None
+    while True:
+        resp = clients.youtube.playlists().list(part="snippet", mine=True, maxResults=50, pageToken=token).execute()
+        existing.update({p["snippet"]["title"]: p["id"] for p in resp.get("items", [])})
+        token = resp.get("nextPageToken")
+        if not token:
+            break
+    primary = clients.settings["languages"].get("primary", "en")
+    results = []
+    for pl in plan["playlists"]:
+        title = pl["title"]["en"]
+        if title in existing:
+            print(f"  keep    {title}  (https://www.youtube.com/playlist?list={existing[title]})")
+            results.append({"id": pl["id"], "playlist_id": existing[title], "created": False})
+            continue
+        body = {
+            "snippet": {"title": title, "description": " ".join(pl["description"].split()),
+                        "defaultLanguage": primary},
+            "status": {"privacyStatus": args.privacy},
+            "localizations": {lang: {"title": t, "description": " ".join(pl["description"].split())}
+                              for lang, t in pl["title"].items() if lang != primary},
+        }
+        if not args.yes:
+            print(f"  would create ({args.privacy})  {title}")
+            continue
+        made = clients.youtube.playlists().insert(part="snippet,status,localizations", body=body).execute()
+        print(f"  created {title}  (https://www.youtube.com/playlist?list={made['id']})")
+        results.append({"id": pl["id"], "playlist_id": made["id"], "created": True})
+    if not args.yes:
+        print("DRY RUN. Add --yes to create them.")
+    else:
+        write_json(data_dir(clients.settings) / "playlists.json", results)
+    return results
+
+
 def cmd_reply(clients: Clients, args) -> Optional[dict]:
     if not args.yes:
         print(f"DRY RUN. Would reply to {args.comment_id}:\n  {args.text}\nAdd --yes to post it.")
@@ -527,6 +571,10 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("file")
     s.add_argument("--meta", required=True, help="JSON with title, description, tags, localizations...")
     s.add_argument("--privacy", choices=["private", "unlisted", "public"])
+    s = sub.add_parser("playlists", help="create the series playlists from profile/series-plan.yaml")
+    s.add_argument("--plan", default=str(REPO_ROOT / "profile" / "series-plan.yaml"))
+    s.add_argument("--privacy", choices=["private", "unlisted", "public"], default="private")
+    s.add_argument("--yes", action="store_true", help="actually create them (dry run otherwise)")
     s = sub.add_parser("reply", help="reply to a comment (dry run unless --yes)")
     s.add_argument("comment_id")
     s.add_argument("--text", required=True)
@@ -537,7 +585,7 @@ def build_parser() -> argparse.ArgumentParser:
 COMMANDS = {
     "auth": cmd_auth, "videos": cmd_videos, "analytics": cmd_analytics, "retention": cmd_retention,
     "comments": cmd_comments, "snapshot": cmd_snapshot, "trends": cmd_trends, "upload": cmd_upload,
-    "reply": cmd_reply,
+    "playlists": cmd_playlists, "reply": cmd_reply,
 }
 
 

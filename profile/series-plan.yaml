@@ -1,0 +1,345 @@
+# Playlists and series plan for @ayandas9197.
+#
+# One playlist per pillar, each built around a flagship series taught in order. This file is the
+# single source for:
+#   - YouTube playlists:  python automation/ytapi.py playlists            (creates the missing ones, private)
+#   - Voting roadmap:     python automation/plan.py roadmap --out <voting-repo>/roadmap.json
+#   - Readable plan:      python automation/plan.py markdown --out <voting-repo>/SERIES.md
+#
+# Order inside a series is the teaching order: each episode lists what it builds on. Hindi and
+# Bengali playlist titles are drafts - have a native speaker check them before publishing.
+# `sources` are starting points to verify during /youtube-research, not citations to copy blind.
+
+levels:
+  - {id: beginner, name: Beginner, color: "2ea44f"}
+  - {id: intermediate, name: Intermediate, color: "fbca04"}
+  - {id: advanced, name: Advanced, color: "d73a4a"}
+
+playlists:
+  - id: neuro
+    pillar: Science and technology
+    label: neuroscience
+    color: "8957e5"
+    title:
+      en: "Neuroscience from Zero"
+      hi: "शून्य से न्यूरोसाइंस"
+      bn: "শূন্য থেকে নিউরোসায়েন্স"
+    description: >-
+      How the brain works, from one neuron to whole-brain networks, taught for students with no
+      biology background. Each video builds on the one before it.
+    episodes:
+      - id: neuro-01
+        title: "What a neuron actually does"
+        level: beginner
+        goal: "Explain how a neuron receives, adds up and sends signals."
+        shorts: ["A neuron is not a wire"]
+      - id: neuro-02
+        title: "The action potential, step by step"
+        level: beginner
+        builds_on: neuro-01
+        goal: "Draw the action potential and say which ion does what at each phase."
+        shorts: ["All-or-nothing: why neurons spike, not dim"]
+      - id: neuro-03
+        title: "Synapses: how neurons talk"
+        level: beginner
+        builds_on: neuro-02
+        goal: "Describe chemical synaptic transmission and excitation versus inhibition."
+      - id: neuro-04
+        title: "Dopamine is not the pleasure chemical"
+        level: beginner
+        builds_on: neuro-03
+        goal: "Explain dopamine as a learning signal (reward prediction error)."
+        sources: ["Schultz, Dayan & Montague 1997, Science"]
+        shorts: ["The dopamine myth in 45 seconds"]
+      - id: neuro-05
+        title: "How the brain learns: plasticity"
+        level: intermediate
+        builds_on: neuro-03
+        goal: "Explain Hebbian learning, LTP and why practice changes the brain."
+      - id: neuro-06
+        title: "Measuring the brain: EEG, MEG and fMRI"
+        level: intermediate
+        builds_on: neuro-02
+        goal: "Say what each method measures, and its time and space resolution."
+      - id: neuro-07
+        title: "Brain networks and rhythms"
+        level: intermediate
+        builds_on: neuro-06
+        goal: "Explain oscillations (alpha, gamma...) and functional networks without myths."
+      - id: neuro-08
+        title: "Real neurons vs artificial neural networks"
+        level: intermediate
+        builds_on: neuro-05
+        goal: "Compare what deep learning borrowed from the brain and what it did not."
+
+  - id: engineering
+    pillar: Engineering
+    label: engineering
+    color: "0969da"
+    title:
+      en: "Signals and Systems, Explained"
+      hi: "सिग्नल और सिस्टम, आसान भाषा में"
+      bn: "সিগন্যাল ও সিস্টেম, সহজ ভাষায়"
+    description: >-
+      The engineering behind sound, images, sensors and brain recordings: sampling, frequency,
+      filtering and feedback, with Python on real signals.
+    episodes:
+      - id: eng-01
+        title: "What is a signal? From sound to EEG"
+        level: beginner
+        goal: "Describe signals in time, and the idea of amplitude, frequency and phase."
+      - id: eng-02
+        title: "Sampling and the Nyquist rule"
+        level: beginner
+        builds_on: eng-01
+        goal: "Choose a sampling rate and explain aliasing with an example."
+        shorts: ["Why wheels spin backwards on video"]
+      - id: eng-03
+        title: "The Fourier transform without fear"
+        level: intermediate
+        builds_on: eng-02
+        goal: "Compute and read a spectrum in Python and say what the FFT is doing."
+      - id: eng-04
+        title: "Filters: keeping what you want"
+        level: intermediate
+        builds_on: eng-03
+        goal: "Design and apply low-, high- and band-pass filters, and see their side effects."
+      - id: eng-05
+        title: "Noise, artifacts and cleaning real recordings"
+        level: intermediate
+        builds_on: eng-04
+        goal: "Spot and remove line noise and artifacts in a real EEG recording."
+      - id: eng-06
+        title: "Feedback and control: how a thermostat thinks"
+        level: intermediate
+        builds_on: eng-01
+        goal: "Explain feedback loops and PID control with a simulation."
+      - id: eng-07
+        title: "Project: build an EEG band-power analyser in Python"
+        level: advanced
+        builds_on: eng-05
+        goal: "Go from a raw open dataset to band-power plots, with code in the repo."
+
+  - id: data
+    pillar: Data analysis
+    label: data-analysis
+    color: "1f883d"
+    title:
+      en: "Data Analysis from Zero (Python)"
+      hi: "शून्य से डेटा एनालिसिस (Python)"
+      bn: "শূন্য থেকে ডেটা অ্যানালাইসিস (Python)"
+    description: >-
+      Real data analysis the correct way: Python, pandas, statistics, plots and machine learning,
+      and how not to fool yourself with numbers.
+    episodes:
+      - id: data-01
+        title: "Set up Python for data analysis"
+        level: beginner
+        goal: "Install Python, Jupyter and pandas, and run a first notebook."
+      - id: data-02
+        title: "pandas: load, explore, clean"
+        level: beginner
+        builds_on: data-01
+        goal: "Load a real CSV, find missing and wrong values, and fix them reproducibly."
+      - id: data-03
+        title: "Plots that tell the truth"
+        level: beginner
+        builds_on: data-02
+        goal: "Pick the right chart and avoid misleading axes and averages."
+        shorts: ["The same data, two opposite charts"]
+      - id: data-04
+        title: "Statistics you actually need"
+        level: intermediate
+        builds_on: data-03
+        goal: "Use mean, median, variance and distributions correctly, with real data."
+      - id: data-05
+        title: "p-values, done correctly"
+        level: intermediate
+        builds_on: data-04
+        goal: "Say what a p-value is and is not, and run a test without p-hacking."
+        sources: ["Wasserstein & Lazar 2016, The American Statistician (ASA statement on p-values)"]
+        shorts: ["What a p-value is NOT"]
+      - id: data-06
+        title: "Correlation, regression and confounders"
+        level: intermediate
+        builds_on: data-05
+        goal: "Fit a regression and explain why correlation is not causation, with an example."
+      - id: data-07
+        title: "Machine learning with scikit-learn, honestly"
+        level: intermediate
+        builds_on: data-06
+        goal: "Train, validate and test a model and catch data leakage."
+      - id: data-08
+        title: "Project: analyse an open dataset end to end"
+        level: advanced
+        builds_on: data-07
+        goal: "Question, clean, analyse, model and present, with the notebook in the repo."
+
+  - id: trading
+    pillar: Algorithmic trading
+    label: algo-trading
+    color: "bf8700"
+    title:
+      en: "Algo Trading with Python - Education Only"
+      hi: "Python से एल्गो ट्रेडिंग - केवल शिक्षा के लिए"
+      bn: "Python দিয়ে অ্যালগো ট্রেডিং - শুধুমাত্র শিক্ষার জন্য"
+    description: >-
+      Markets as a data-science and engineering problem: data, returns, risk, and building and
+      testing a backtester honestly. Education only - not financial advice, no buy or sell calls.
+    episodes:
+      - id: trade-01
+        title: "Market data in Python: prices, candles, returns"
+        level: beginner
+        builds_on: data-02
+        goal: "Load price data and compute simple and log returns correctly."
+      - id: trade-02
+        title: "Risk first: volatility and drawdown"
+        level: beginner
+        builds_on: trade-01
+        goal: "Measure volatility and maximum drawdown and explain why they matter more than returns."
+        shorts: ["A 50% loss needs a 100% gain"]
+      - id: trade-03
+        title: "Build a backtester from scratch"
+        level: intermediate
+        builds_on: trade-02
+        goal: "Write a simple event-by-event backtester and test it on a toy strategy."
+      - id: trade-04
+        title: "Costs and slippage: why most backtests lie"
+        level: intermediate
+        builds_on: trade-03
+        goal: "Add fees and slippage and show how much they change the result."
+      - id: trade-05
+        title: "Overfitting, look-ahead and survivorship bias"
+        level: intermediate
+        builds_on: trade-04
+        goal: "Recognise the three biases in real backtests and test against them."
+        shorts: ["The backtest that was too good to be true"]
+      - id: trade-06
+        title: "Walk-forward testing and out-of-sample data"
+        level: advanced
+        builds_on: trade-05
+        goal: "Split data properly and validate a strategy walk-forward."
+      - id: trade-07
+        title: "Position sizing and risk management"
+        level: advanced
+        builds_on: trade-06
+        goal: "Size positions by risk and explain why sizing matters more than signals."
+      - id: trade-08
+        title: "Paper trading, regulation and staying honest"
+        level: advanced
+        builds_on: trade-07
+        goal: "Paper trade safely and know what SEBI rules mean for advice and tips."
+
+  - id: research
+    pillar: Interdisciplinary research
+    label: comp-psychiatry
+    color: "cf222e"
+    title:
+      en: "The Computational Brain: Psychosis Research Explained"
+      hi: "कम्प्यूटेशनल ब्रेन: साइकोसिस रिसर्च आसान भाषा में"
+      bn: "কম্পিউটেশনাল ব্রেন: সাইকোসিস গবেষণা সহজ ভাষায়"
+    description: >-
+      Computational neuroscience applied to psychosis, from a PhD researcher in the field: what
+      psychosis is, the theories that model it, and how the research is actually done. Education
+      only - not medical advice. If you or someone you know is struggling, contact a local helpline
+      or a doctor.
+    episodes:
+      - id: res-01
+        title: "What psychosis is, and what it is not"
+        level: beginner
+        goal: "Describe psychosis accurately, without stigma, and separate it from movie myths."
+        notes: "Mental-health rules in writing-style.md apply to this whole series."
+      - id: res-02
+        title: "What is computational psychiatry?"
+        level: beginner
+        builds_on: res-01
+        goal: "Explain why maths and models are used to study mental illness."
+        sources: ["Montague, Dolan, Friston & Dayan 2012, Trends in Cognitive Sciences"]
+      - id: res-03
+        title: "The predictive brain"
+        level: intermediate
+        builds_on: neuro-04
+        goal: "Explain predictive coding: the brain as a prediction machine that learns from errors."
+        sources: ["Friston 2005, Phil Trans R Soc B", "Clark 2013, Behavioral and Brain Sciences"]
+        shorts: ["Your brain sees what it expects"]
+      - id: res-04
+        title: "When predictions go wrong: predictive coding and psychosis"
+        level: intermediate
+        builds_on: res-03
+        goal: "Explain how altered prediction and precision could lead to hallucinations and delusions."
+        sources: ["Fletcher & Frith 2009, Nature Reviews Neuroscience", "Sterzer et al. 2018, Biological Psychiatry"]
+      - id: res-05
+        title: "Dopamine and aberrant salience"
+        level: intermediate
+        builds_on: res-04
+        goal: "Explain the aberrant salience hypothesis and what evidence supports and limits it."
+        sources: ["Kapur 2003, American Journal of Psychiatry"]
+      - id: res-06
+        title: "Modelling belief updating: reinforcement learning and Bayesian models"
+        level: advanced
+        builds_on: res-05
+        goal: "Fit a simple learning model to choice data and read its parameters."
+        sources: ["Mathys et al. 2011, Frontiers in Human Neuroscience (hierarchical Gaussian filter)"]
+      - id: res-07
+        title: "Brain signals in psychosis: EEG and mismatch negativity"
+        level: advanced
+        builds_on: eng-05
+        goal: "Explain mismatch negativity and why it is studied as a marker in psychosis."
+        sources: ["Umbricht & Krljes 2005, Schizophrenia Research (meta-analysis)"]
+      - id: res-08
+        title: "Inside my PhD: a computational psychosis study, start to finish"
+        level: advanced
+        builds_on: res-06
+        goal: "Walk through a real study's question, data, model and limits."
+        notes: "Only what is published or cleared to share. TODO: confirm what can be shown."
+
+  - id: skills
+    pillar: Learning and research skills
+    label: research-skills
+    color: "6e7781"
+    title:
+      en: "Learn It Right: Research Skills for Students"
+      hi: "सही तरीके से सीखें: छात्रों के लिए रिसर्च स्किल्स"
+      bn: "সঠিকভাবে শিখুন: ছাত্রছাত্রীদের জন্য রিসার্চ স্কিল"
+    description: >-
+      How to learn a new field properly, read papers, start research as a student and keep going.
+      Honest about PhD life, the hard parts included.
+    episodes:
+      - id: skills-01
+        title: "How to learn any technical subject properly"
+        level: beginner
+        goal: "Use active recall, spaced practice and projects instead of rewatching videos."
+        sources: ["Dunlosky et al. 2013, Psychological Science in the Public Interest"]
+        shorts: ["Rewatching is not learning"]
+      - id: skills-02
+        title: "How to read a research paper"
+        level: beginner
+        goal: "Read a paper in three passes and pull out the question, method and limits."
+        sources: ["Keshav 2007, ACM SIGCOMM Computer Communication Review"]
+      - id: skills-03
+        title: "Finding papers: Google Scholar, PubMed and arXiv"
+        level: beginner
+        builds_on: skills-02
+        goal: "Search the literature systematically and keep track of what you read."
+      - id: skills-04
+        title: "Reproduce a paper: the best first research project"
+        level: intermediate
+        builds_on: skills-03
+        goal: "Pick a paper with open code and data and reproduce one result."
+      - id: skills-05
+        title: "How to start research as an undergraduate"
+        level: beginner
+        goal: "Find a lab or project, write to a professor and apply for summer research programmes."
+      - id: skills-06
+        title: "Writing your first paper"
+        level: intermediate
+        builds_on: skills-04
+        goal: "Structure a paper and know what reviewers look for."
+      - id: skills-07
+        title: "Failure, rejection and motivation in research"
+        level: beginner
+        goal: "Handle failed experiments and rejections with a plan, not panic."
+      - id: skills-08
+        title: "PhD life, honestly"
+        level: beginner
+        goal: "Give a realistic picture of a PhD: time, money, supervision, and what makes it worth it."
